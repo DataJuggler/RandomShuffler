@@ -37,8 +37,8 @@ namespace DataJuggler.RandomShuffler
                 int randomIndex = -1;
                 int cycles = 1;
                 
-                // Use the RNGCryptoServiceProvider to create random zeros or 1
-                RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
+                // create
+                RandomNumberGenerator crypto = RandomNumberGenerator.Create();
 
                 // Create the byte array that serves asa                               
                 byte[] container = new byte[1];
