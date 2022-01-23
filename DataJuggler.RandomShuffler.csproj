@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;net6.0;</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Update: 12.11.2021: This project now targets 5.0 and Net 6.0.
+    <Description>
+Update: 1.23..2022: This project now targets Net 6.0.
 
 Update: 11.13.2020: This project has been updated for .Net 5.0.
 All working goiong forward if any will be on this project. The .Net Framework
@@ -17,20 +18,29 @@ This is a direct port of RandomShuffler for Dot Net Framework. Everything should
     <PackageProjectUrl>https://github.com/DataJuggler/RandomShuffler</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DataJuggler/RandomShuffler.git</RepositoryUrl>
     <PackageTags>C#, Random Numbers, Shuffle, Shuffler</PackageTags>
-    <PackageReleaseNotes>Version 1.2.6: I implemented IDisposeable so I could use this project in a Using statement
+    <PackageReleaseNotes>
+Version 6.0.4: This project has been updated to .NET6.		
+		
+Version 1.2.6: I implemented IDisposeable so I could use this project in a Using statement
 
 Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net Standard2.1
 
 This is the first release for Dot Net Core. I am building a site called BlazorAnimations as a demo, and I needed this available for Dot Net Core.</PackageReleaseNotes>
     <AssemblyVersion>1.3.0.0</AssemblyVersion>
     <FileVersion>6.0.1</FileVersion>
-    <Version>6.0.2</Version>
+    <Version>6.0.4</Version>
 	<AssemblyVersion>6.0.0</AssemblyVersion>
     <Company>DataJuggler</Company>
     <Authors>DataJuggler</Authors>
+    <PackageIcon>Deck.png</PackageIcon>
+    <RepositoryType>Git Git Hub</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\BlazorFileUpload\BlazorFileUpload\Deck.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -38,7 +48,7 @@ This is the first release for Dot Net Core. I am building a site called BlazorAn
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UltimateHelper\DataJuggler.UltimateHelper.csproj" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="6.0.2" />
   </ItemGroup>
 
 </Project>
