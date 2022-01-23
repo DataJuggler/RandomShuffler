@@ -37,10 +37,6 @@ This is the first release for Dot Net Core. I am building a site called BlazorAn
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\BlazorFileUpload\BlazorFileUpload\Deck.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Include="LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -49,6 +45,13 @@ This is the first release for Dot Net Core. I am building a site called BlazorAn
 
   <ItemGroup>
     <PackageReference Include="DataJuggler.UltimateHelper" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Images\Deck.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
