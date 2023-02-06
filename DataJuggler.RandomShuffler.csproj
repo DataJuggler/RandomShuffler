@@ -3,7 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Update 11.8.2022
+    <Description>Update 2.6.2023: I fixed the LargeNumberShuffler with 0 as a minimum number.
+
+Update 11.8.2022
 v7.0.3: This project has been updated for .NET7.
 
 Update 10.21.2022:
@@ -37,7 +39,7 @@ Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net S
 
 This is the first release for Dot Net Core. I am building a site called BlazorAnimations as a demo, and I needed this available for Dot Net Core.</PackageReleaseNotes>
     <FileVersion>7.0.3</FileVersion>
-    <Version>7.0.3</Version>
+    <Version>7.0.4</Version>
 	<AssemblyVersion>7.0.3</AssemblyVersion>
     <Company>DataJuggler</Company>
     <Authors>DataJuggler</Authors>

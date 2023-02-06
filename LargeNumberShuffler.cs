@@ -104,7 +104,7 @@ namespace DataJuggler.RandomShuffler
                             temp = shuffler.PullNextItem();
 
                             // if we already have the first non zero
-                            if (firstNonZeroPulled)
+                            if ((firstNonZeroPulled) || (MinValue == 0))
                             {
                                 // Add this item
                                 sb.Append(temp);
@@ -134,7 +134,7 @@ namespace DataJuggler.RandomShuffler
                         pullNumber = NumericHelper.ParseInteger(tempString, -1, -2);
 
                         // if this is not the defaultValue or the errorValue
-                        if (pullNumber >= 0)
+                        if (MinValue == 1)
                         {
                             // Increment the value for pullNumber because the needed range is 1 - 1,000,000 and this code returns 0 - 999,999
                             pullNumber++;
@@ -166,8 +166,16 @@ namespace DataJuggler.RandomShuffler
                                 // if the MaxValue is set
                                 if (this.MaxValue > 0)
                                 {
-                                    // Get the modulus
-                                    pullNumber = (pullNumber % this.MaxValue) + 1;
+                                    // if the MinValue is 1, add 1, else leave as is
+                                    if (MinValue == 1)
+                                    {
+                                        // Get the modulusj + 1
+                                        pullNumber = (pullNumber % this.MaxValue) + 1;
+                                    }
+                                    else
+                                    {
+                                        pullNumber = (pullNumber % (this.MaxValue + 1));
+                                    }
                                 }
                             }
                         }
