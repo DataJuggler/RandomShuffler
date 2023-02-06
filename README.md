@@ -8,6 +8,8 @@ I just released a demo project: Random Bytes
 Random Bytes - Example Win Forms app
 https://github.com/DataJuggler/RandomBytes 
 
+Card Demo Coming Soon!
+
 Create a random shuffler for cards:
 
   // create the RandomShuffler object for cards
