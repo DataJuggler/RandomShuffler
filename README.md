@@ -45,4 +45,4 @@ To pull items:
 
     value = Shuffler.PullNumber();
     
-You can also create random numbers on my site: https://datajuggler.com/Random (coming soon).
+You can also create random numbers on my site: https://datajuggler.com/Random 
