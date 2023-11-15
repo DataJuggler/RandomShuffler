@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Update 2.6.2023: I fixed the LargeNumberShuffler with 0 as a minimum number.
+    <Description>RandomShuffler uses even distribution and is closer to simulating real cards or dice.
+        Update 11.15.2023: This project has been updated to .NET8.
+
+		Update 2.6.2023: I fixed the LargeNumberShuffler with 0 as a minimum number.
 
 Update 11.8.2022
 v7.0.3: This project has been updated for .NET7.
@@ -39,8 +42,7 @@ Version 6.0.4: This project has been updated to .NET6.
 Version 1.2.6: I implemented IDisposeable so I could use this project in a Using statement
 
 Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net Standard2.1
-
-This is the first release for Dot Net Core. I am building a site called BlazorAnimations as a demo, and I needed this available for Dot Net Core.</PackageReleaseNotes>
+    </PackageReleaseNotes>
     <FileVersion>7.0.3</FileVersion>
     <Version>7.0.4</Version>
 	<AssemblyVersion>7.0.3</AssemblyVersion>
