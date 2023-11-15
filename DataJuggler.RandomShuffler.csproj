@@ -50,6 +50,7 @@ Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net S
     <Authors>DataJuggler</Authors>
     <PackageIcon>Deck.png</PackageIcon>
     <RepositoryType>Git Git Hub</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -65,6 +66,13 @@ Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net S
 
   <ItemGroup>
     <None Include="Images\Deck.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
