@@ -49,6 +49,8 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+11.22.2023: DataJuggler.UltimateHelper NuGet package was updated.
+
 11.15.2023: This project was updated to .NET8.
 		
 10.20.2022
