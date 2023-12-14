@@ -44,7 +44,7 @@ Version 1.2.6: I implemented IDisposeable so I could use this project in a Using
 Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net Standard2.1
     </PackageReleaseNotes>
     <FileVersion>7.0.3</FileVersion>
-    <Version>8.0.2</Version>
+    <Version>8.0.3</Version>
 	<AssemblyVersion>7.0.3</AssemblyVersion>
     <Company>DataJuggler</Company>
     <Authors>DataJuggler</Authors>
