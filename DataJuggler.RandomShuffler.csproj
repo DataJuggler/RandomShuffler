@@ -61,7 +61,7 @@ Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net S
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.UltimateHelper" Version="8.0.4" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
