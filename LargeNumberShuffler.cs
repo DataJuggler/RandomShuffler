@@ -165,17 +165,9 @@ namespace DataJuggler.RandomShuffler
                             {
                                 // if the MaxValue is set
                                 if (this.MaxValue > 0)
-                                {
-                                    // if the MinValue is 1, add 1, else leave as is
-                                    if (MinValue == 1)
-                                    {
-                                        // Get the modulusj + 1
-                                        pullNumber = (pullNumber % this.MaxValue) + 1;
-                                    }
-                                    else
-                                    {
-                                        pullNumber = (pullNumber % (this.MaxValue + 1));
-                                    }
+                                {  
+                                    // Get the modulusj + the MinValue
+                                    pullNumber = (pullNumber % this.MaxValue) + MinValue;
                                 }
                             }
                         }

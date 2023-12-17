@@ -49,6 +49,8 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+12.17.2023: I changed how Return Modulus works. I now return the modulus + the min value.
+
 12.14.2023: DataJuggler.UltimateHelper NuGet package was updated.
 
 11.22.2023: DataJuggler.UltimateHelper NuGet package was updated.
