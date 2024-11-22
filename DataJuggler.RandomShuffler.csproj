@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>RandomShuffler uses even distribution and is closer to simulating real cards or dice.
         Update 11.15.2023: This project has been updated to .NET8.
@@ -44,7 +44,7 @@ Version 1.2.6: I implemented IDisposeable so I could use this project in a Using
 Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net Standard2.1
     </PackageReleaseNotes>
     <FileVersion>7.0.3</FileVersion>
-    <Version>8.0.7</Version>
+    <Version>9.0.0</Version>
 	<AssemblyVersion>7.0.3</AssemblyVersion>
     <Company>DataJuggler</Company>
     <Authors>DataJuggler</Authors>
@@ -61,7 +61,7 @@ Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net S
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.UltimateHelper" Version="8.1.3" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup>
