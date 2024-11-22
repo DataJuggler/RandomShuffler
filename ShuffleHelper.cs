@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Linq;
 using DataJuggler.UltimateHelper;
+using DataJuggler.UltimateHelper.Objects;
 
 #endregion
 
@@ -30,6 +31,8 @@ namespace DataJuggler.RandomShuffler
             /// <param name="list"></param>
             public static List<T> Shuffle<T>(this IList<T> list)
             {
+                
+
                 // List
                 List<T> shuffledList = new List<T>();
 
