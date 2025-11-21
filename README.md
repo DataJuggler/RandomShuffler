@@ -1,7 +1,13 @@
 # RandomShuffler
-RandomShuffler is a .NET 9 Nuget Package and project uses even random distribution and has built in methods for shuffling Cards and integers for Dice games and other uses.
 
-Random Shuffler comes with two shufflers. For small values (less than 100), the RandomShuffler class is well suited for continually drawing numbers or cards, and reshuffling when the reshuffle threshhold is reached. True random numbers can take a very long time to even out, where as an even distrution system will distribute evenly.
+RandomShuffler has been updated to .NET 10. RandomShuffler is a Nuget Package and project that uses even random 
+distribution and has built in methods for shuffling Cards and integers for Dice games and other uses.
+
+Random Shuffler comes with two shufflers. For small values (less than 100), the RandomShuffler class is well suited for 
+continually drawing numbers or cards, and reshuffling when the reshuffle threshhold is reached. True random numbers can 
+take a very long time to even out, where as an even distrution system will distribute evenly.
+
+LargeNumberShuffler is used for numbers with 4 - 10 digits and is much faster than the RandomShuffler class.
 
 I just released a demo project: Random Bytes
 
@@ -48,6 +54,8 @@ To pull items:
 You can also create random numbers on my site: https://datajuggler.com/Random 
 
 # News
+
+11.21.2025: This project has been updated to .NET 10.
 
 11.22.2024: This project has been updated to .NET 9.
 

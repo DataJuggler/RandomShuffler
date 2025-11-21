@@ -1,32 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>RandomShuffler uses even distribution and is closer to simulating real cards or dice.
-        Update 11.15.2023: This project has been updated to .NET8.
-
-		Update 2.6.2023: I fixed the LargeNumberShuffler with 0 as a minimum number.
-
-Update 11.8.2022
-v7.0.3: This project has been updated for .NET7.
-
-Update 10.21.2022:
-v7.0.3-rc1: Corrected a grammar error in the project Description.
-
-
-Update 10.20.2022: This project now targets .NET 7. Use 6.x version for .NET 6.
-
-Update: 1.23..2022: This project now targets Net 6.
-
-Update: 11.13.2020: This project has been updated for .Net 5.
-All working goiong forward if any will be on this project. The .Net Framework
-and .Net Core versions are archived.
-
-This is a direct port of RandomShuffler for Dot Net Framework. Everything should work the same.
-
-    I am starting with the same version the Dot Net Framework was at, but since this is the first version for Dot Net Core, use with caution.</Description>
-    <Copyright>2020 DataJuggler - Use As Is Do Whatever you Want</Copyright>
+	<Description>
+	    RandomShuffler uses even distribution and is closer to simulating real cards or dice
+        than a rand function. There is RandomShuffler and LargeNumberShuffler is faster for big numbers.
+        This project has been updated to .NET 10. Use 9.x for .NET 9, 8.x for .NET 8, etc.
+    </Description>
+    <Copyright>2020 - 2025 DataJuggler - Use As Is Do Whatever you Want</Copyright>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/DataJuggler/RandomShuffler</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DataJuggler/RandomShuffler.git</RepositoryUrl>
@@ -44,7 +26,7 @@ Version 1.2.6: I implemented IDisposeable so I could use this project in a Using
 Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net Standard2.1
     </PackageReleaseNotes>
     <FileVersion>7.0.3</FileVersion>
-    <Version>9.0.3</Version>
+    <Version>10.0.0</Version>
 	<AssemblyVersion>7.0.3</AssemblyVersion>
     <Company>DataJuggler</Company>
     <Authors>DataJuggler</Authors>
@@ -61,7 +43,7 @@ Version 1.2.5 I changed from targeting Dot Net Core 3.0, to Net Core 3.1, .Net S
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.UltimateHelper" Version="9.1.6" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
