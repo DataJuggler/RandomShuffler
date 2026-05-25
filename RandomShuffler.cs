@@ -36,7 +36,7 @@ namespace DataJuggler.RandomShuffler
 
         #region Private Variables
         private List<int> randomIntStorage;
-        private List<Card> randomCardStorage;
+        private List<Card> cards;
         private int minValue;
         private int maxValue;
         private int setsToInitialize;
@@ -47,40 +47,11 @@ namespace DataJuggler.RandomShuffler
         private const int DefaultShuffleCount = 3;
         private const int CardMinValue = 1;
         private const int CardMaxValue = 52;
-        private ICardValueManager cardValueManager;
         private int randomStorageCount;
         private const int NumberSuitsInDeck = 4;
         #endregion
 
         #region Constructors
-
-            #region RandomShuffler(int numberDecks, ICardValueManager cardValueManager, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
-            /// <summary>
-            /// Create a new instance of a RandomShuffler object; this constructor is for initializing RandomCardStorage.
-            /// </summary>
-            /// <param name="minValue"></param>
-            /// <param name="maxValue"></param>
-            /// <param name="numberToInitialize"></param>
-            public RandomShuffler(int numberDecks, ICardValueManager cardValueManager, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
-            {
-                // This is Cards Mode
-                this.RandomMode = RandomModeEnum.Cards;
-
-                // Store the CardValueManager
-                this.CardValueManager = cardValueManager;
-                
-                // store the parameters
-                this.MinValue = CardMinValue;
-                this.MaxValue = CardMaxValue;
-                this.SetsToInitialize = numberDecks;
-            
-                // Create the ShuffleOptions
-                this.ShuffleOptions = new ShuffleOptionManager(initialShuffles, beforeItemIsPulledShuffles, afterItemIsPulledShuffles);
-
-                // Perform initializations for this object
-                Init();
-            }
-            #endregion
 
             #region Parameterized Constructor(int minValue, int maxValue, int setsToInitialize, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
             /// <summary>
@@ -104,6 +75,30 @@ namespace DataJuggler.RandomShuffler
             
                 // Create the ShuffleOptions
                 this.ShuffleOptions = new ShuffleOptionManager(initialShuffles, beforeItemIsPulledShuffles, afterItemIsPulledShuffles);
+
+                // Perform initializations for this object
+                Init();
+            }
+            #endregion
+
+            #region RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
+            /// <summary>
+            /// Create a new instance of a RandomShuffler object; this constructor is for initializing RandomCardStorage.
+            /// </summary>
+            /// <param name="numberDecks"></param>
+            /// <param name="initialShuffles"></param>            
+            public RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount)
+            {
+                // This is Cards Mode
+                this.RandomMode = RandomModeEnum.Cards;
+                
+                // store the parameters
+                this.MinValue = CardMinValue;
+                this.MaxValue = CardMaxValue;
+                this.SetsToInitialize = numberDecks;
+            
+                // Create the ShuffleOptions
+                this.ShuffleOptions = new ShuffleOptionManager(initialShuffles);
 
                 // Perform initializations for this object
                 Init();
@@ -152,8 +147,7 @@ namespace DataJuggler.RandomShuffler
             {
                 // destroy the lists and objects that might be created
                 randomIntStorage = null;
-                randomCardStorage = null;
-                cardValueManager = null;
+                cards = null;
                 shuffleOptions = null;
             }
             #endregion
@@ -276,40 +270,32 @@ namespace DataJuggler.RandomShuffler
                 CardEnum cardName = CardEnum.Unknown;
                 Card card = null;
 
-                // If the CardValueManager object exists
-                if (this.HasCardValueManager)
-                {
-                    // Create a new collection of Card' objects.
-                    this.RandomCardStorage = new List<Card>();
+                
+                // Create a new collection of Card' objects.
+                this.Cards = new List<Card>();
 
-                    // iterate the values up to the sets to initialize
-                    for (int a = 0; a < this.SetsToInitialize; a++)
+                // iterate the values up to the sets to initialize
+                for (int a = 0; a < this.SetsToInitialize; a++)
+                {
+                    // iterate the values in between min and max (add all the card, dice, etc. possibilities)
+                    for (int x = minValue; x <= maxValue; x++)
                     {
-                        // iterate the values in between min and max (add all the card, dice, etc. possibilities)
-                        for (int x = minValue; x <= maxValue; x++)
-                        {
-                            // Find the Suit based upon the cardNumber (x)
-                            suit = GetSuit(x);
+                        // Find the Suit based upon the cardNumber (x)
+                        suit = GetSuit(x);
 
-                            // Get the name of this card
-                            cardName = GetCardName(x);
+                        // Get the name of this card
+                        cardName = GetCardName(x);
 
-                            // Create a new instance of a 'Card' object.
-                            card = new Card(suit, cardName, this.CardValueManager);
+                        // Create a new instance of a 'Card' object.
+                        card = new Card(suit, cardName, x);
 
-                            // Add the value for x
-                            this.RandomCardStorage.Add(card);
-                        }
+                        // Add the value for x
+                        this.Cards.Add(card);
                     }
+                }
 
-                    // Set the Count
-                    this.RandomStorageCount = this.RandomCardStorage.Count;
-                }
-                else
-                {
-                    // raise an exception
-                    throw new Exception("The 'CardValueManager' must exist in the Init() method of a RandomShuffler object when using RandomMode.Cards.");
-                }
+                // Set the Count
+                this.RandomStorageCount = this.Cards.Count;
             }
             #endregion
             
@@ -345,7 +331,7 @@ namespace DataJuggler.RandomShuffler
                 Card nextCard = null;
 
                 // If the RandomIntStorage object exists
-                if (ListHelper.HasOneOrMoreItems(this.RandomCardStorage))
+                if (ListHelper.HasOneOrMoreItems(this.Cards))
                 {
                     // if ignreShuffle is false and the ShuffleOptions exist and have one or more shuffles required                                       
                     if ((!ignoreShuffle) && (this.HasShuffleOptions) && (this.ShuffleOptions.HasBeforeItemIsPulledShuffles))
@@ -355,16 +341,16 @@ namespace DataJuggler.RandomShuffler
                     }
 
                     // pull out the next Card off the top of the deck
-                    nextCard = this.RandomCardStorage[0];
+                    nextCard = this.Cards[0];
 
                     // if the value for remove is true
                     if (remove)
                     {
                         // Remove the Card that was just pulled
-                        this.RandomCardStorage.RemoveAt(0);
+                        this.Cards.RemoveAt(0);
                     }
                 }
-                else if (!this.HasRandomCardStorage)
+                else if (!this.HasCards)
                 {
                     // if the value for ignoreException is false
                     if (!ignoreException)
@@ -497,10 +483,10 @@ namespace DataJuggler.RandomShuffler
             public void Shuffle()
             {  
                 // If the RandomCardStorage object exists
-                if ((this.RandomMode == RandomModeEnum.Cards) && (this.HasRandomCardStorage))
+                if ((this.RandomMode == RandomModeEnum.Cards) && (this.HasCards))
                 {
                     // Shuffle the list of integers
-                    this.RandomCardStorage = ShuffleHelper.Shuffle<Card>(this.RandomCardStorage);
+                    this.Cards = ShuffleHelper.Shuffle<Card>(this.Cards);
                 }
                 // If the RandomIntStorage object exists
                 else if ((this.RandomMode == RandomModeEnum.Integers) && (this.HasRandomIntStorage))
@@ -514,48 +500,45 @@ namespace DataJuggler.RandomShuffler
         #endregion
 
         #region Properties
+     
+            #region CardsCount
+            /// <summary>
+            /// This read only property returns the value of CardsCount from the object Cards.
+            /// </summary>
+            public int CardsCount
+            {
 
-            #region CardValueManager
-            /// <summary>
-            /// This property gets or sets the value for 'CardValueManager'.
-            /// </summary>
-            public ICardValueManager CardValueManager
-            {
-                get { return cardValueManager; }
-                set { cardValueManager = value; }
-            }
-            #endregion
-            
-            #region HasCardValueManager
-            /// <summary>
-            /// This property returns true if this object has a 'CardValueManager'.
-            /// </summary>
-            public bool HasCardValueManager
-            {
                 get
                 {
                     // initial value
-                    bool hasCardValueManager = (this.CardValueManager != null);
-                    
+                    int cardsCount = 0;
+
+                    // if Cards exists
+                    if (Cards != null)
+                    {
+                        // set the return value
+                        cardsCount = Cards.Capacity;
+                    }
+
                     // return value
-                    return hasCardValueManager;
+                    return cardsCount;
                 }
             }
             #endregion
-     
-            #region HasRandomCardStorage
+            
+            #region HasCards
             /// <summary>
-            /// This property returns true if this object has a 'RandomCardStorage'.
+            /// This property returns true if this object has a 'Cards'.
             /// </summary>
-            public bool HasRandomCardStorage
+            public bool HasCards
             {
                 get
                 {
                     // initial value
-                    bool hasRandomCardStorage = (this.RandomCardStorage != null);
-                    
+                    bool hasCards = (Cards != null);
+
                     // return value
-                    return hasRandomCardStorage;
+                    return hasCards;
                 }
             }
             #endregion
@@ -633,14 +616,14 @@ namespace DataJuggler.RandomShuffler
             }
             #endregion
 
-            #region RandomCardStorage
+            #region Cards
             /// <summary>
-            /// This property gets or sets the value for 'RandomCardStorage'.
+            /// This property gets or sets the value for 'Cards'.
             /// </summary>
-            public List<Card> RandomCardStorage
+            public List<Card> Cards
             {
-                get { return randomCardStorage; }
-                set { randomCardStorage = value; }
+                get { return cards; }
+                set { cards = value; }
             }
             #endregion
             

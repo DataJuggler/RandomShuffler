@@ -55,6 +55,10 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+5.25.2026: I changed the name of RandomCardStorage to Cards, and I removed the CardValueManager.
+I will be moving CardValueManager to DataJuggler.PlayingCards. For now Cards have an int value or 
+List<int> CardValues. I am trying to separate the Shuffler from the Card Values. 
+
 11.21.2025: This project has been updated to .NET 10.
 
 11.22.2024: This project has been updated to .NET 9.

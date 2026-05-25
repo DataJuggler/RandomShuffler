@@ -21,22 +21,21 @@ namespace DataJuggler.RandomShuffler.Objects
         #region Private Variables
         private SuitEnum suit;
         private CardEnum cardName;
-        private ICardValueManager cardValueManager;
+        private int cardValue;
+        private List<int> cardValues;
         #endregion
 
-        #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, ICardValueManager cardValueManager)
+        #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, int cardValue)
         /// <summary>
         /// Create a new instance of a Card object.
         /// </summary>
         /// <param name="suit"></param>
         /// <param name="cardName"></param>
-        /// <param name="cardValueManager"></param>
-        public Card(SuitEnum suit, CardEnum cardName, ICardValueManager cardValueManager)
+        public Card(SuitEnum suit, CardEnum cardName, int cardValue)
         {
             // Store the parameters
             this.Suit = suit;
             this.CardName = cardName;
-            this.CardValueManager = cardValueManager;
         }
         #endregion
         
@@ -71,82 +70,42 @@ namespace DataJuggler.RandomShuffler.Objects
                 set { cardName = value; }
             }
             #endregion
-
+            
             #region CardValue
             /// <summary>
             /// This property gets or sets the value for 'CardValue'.
             /// </summary>
             public int CardValue
             {
-                get 
-                {
-                    // initial value
-                    int cardValue = 0;
-
-                    // if the CardValueManager exists
-                    if (HasCardValueManager)
-                    {
-                        // Set the return value
-                        cardValue = this.CardValueManager.GetCardValue(this);
-                    }
-
-                    // return value
-                    return cardValue;
-                }
+                get { return cardValue; }
+                set { cardValue = value; }
             }
             #endregion
             
-            #region CardValueManager
-            /// <summary>
-            /// This property gets or sets the value for 'CardValueManager'.
-            /// </summary>
-            public ICardValueManager CardValueManager
-            {
-                get { return cardValueManager; }
-                set { cardValueManager = value; }
-            }
-            #endregion
-
             #region CardValues
             /// <summary>
-            /// This property returns the possible CardValues for a Card. In most circumstances you will
-            /// use the CardValue (singular) but in the case of Ace in Black Jack this is needed.
-            /// You can just stub out the method and throw a Not Implemented Exception if this
-            /// method does not apply to a particular game or simulation.
+            /// This property gets or sets the value for 'CardValues'.
             /// </summary>
             public List<int> CardValues
             {
-                get
-                {
-                    // initial value
-                    List<int> cardValues = null;
-
-                    // if the CardValueManager exists
-                    if (HasCardValueManager)
-                    {
-                        // Set the return value
-                        cardValues = this.CardValueManager.GetCardValues(this);
-                    }
-
-                    // return value
-                    return cardValues;
-                }
+                get { return cardValues; }
+                set { cardValues = value; }
             }
             #endregion
             
-            #region HasCardValueManager
+            #region HasCardValues
             /// <summary>
-            /// This property returns true if this object has a 'CardValueManager'.
+            /// This property returns true if this object has a 'CardValues'.
             /// </summary>
-            public bool HasCardValueManager
+            public bool HasCardValues
             {
                 get
                 {
                     // initial value
-                    bool hasCardValueManager = (this.CardValueManager != null);
-                    
+                    bool hasCardValues = (CardValues != null);
+
                     // return value
-                    return hasCardValueManager;
+                    return hasCardValues;
                 }
             }
             #endregion
