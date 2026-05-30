@@ -53,7 +53,7 @@ namespace DataJuggler.RandomShuffler
 
         #region Constructors
 
-            #region Parameterized Constructor(int minValue, int maxValue, int setsToInitialize, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
+            #region Integers Constructor(int minValue, int maxValue, int setsToInitialize, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
             /// <summary>
             /// Create a new instance of a RandomShuffler object; this constructor is for initializing RandomIntStorage.
             /// </summary>
@@ -81,7 +81,7 @@ namespace DataJuggler.RandomShuffler
             }
             #endregion
 
-            #region RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
+            #region Cards Constructor RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
             /// <summary>
             /// Create a new instance of a RandomShuffler object; this constructor is for initializing RandomCardStorage.
             /// </summary>
@@ -269,7 +269,6 @@ namespace DataJuggler.RandomShuffler
                 SuitEnum suit = SuitEnum.Unknown;
                 CardEnum cardName = CardEnum.Unknown;
                 Card card = null;
-
                 
                 // Create a new collection of Card' objects.
                 this.Cards = new List<Card>();

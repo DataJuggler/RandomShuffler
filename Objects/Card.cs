@@ -59,15 +59,15 @@ namespace DataJuggler.RandomShuffler.Objects
             #region CardFullName
             /// <summary>
             /// This read only property returns the value for 'CardFullName'.
-            /// This value includes the CardName and the Suit.
-            /// Example: TwoHearts
+            /// This value includes the CardName and the Suit + the extension .png
+            /// Example: TwoHearts.png
             /// </summary>
             public string CardFullName
             {
                 get
                 {
                     // initial value
-                    string fullName = this.CardName.ToString() + this.Suit.ToString();
+                    string fullName = this.CardName.ToString() + this.Suit.ToString() + ".png";
                     
                     // return value
                     return fullName;
