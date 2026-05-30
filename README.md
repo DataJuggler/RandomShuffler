@@ -55,6 +55,9 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+5.30.2026: I added a property called Bitmap to the Card object. This is used by DataJuggler.PlayingCards in
+a WinForms environment. 
+
 5.25.2026: I changed the name of RandomCardStorage to Cards, and I removed the CardValueManager.
 I will be moving CardValueManager to DataJuggler.PlayingCards. For now Cards have an int value or 
 List<int> CardValues. I am trying to separate the Shuffler from the Card Values. 

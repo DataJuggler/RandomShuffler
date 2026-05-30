@@ -5,6 +5,7 @@
 using DataJuggler.RandomShuffler.Enumerations;
 using DataJuggler.RandomShuffler.Interfaces;
 using System.Collections.Generic;
+using System.Drawing;
 
 #endregion
 
@@ -23,6 +24,8 @@ namespace DataJuggler.RandomShuffler.Objects
         private CardEnum cardName;
         private int cardValue;
         private List<int> cardValues;
+        private string path;
+        private Bitmap bitmap;
         #endregion
 
         #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, int cardValue)
@@ -36,10 +39,22 @@ namespace DataJuggler.RandomShuffler.Objects
             // Store the parameters
             this.Suit = suit;
             this.CardName = cardName;
+            this.CardValue = cardValue;
         }
         #endregion
         
         #region Properties
+            
+            #region Bitmap
+            /// <summary>
+            /// This property gets or sets the value for 'Bitmap'.
+            /// </summary>
+            public Bitmap Bitmap
+            {
+                get { return bitmap; }
+                set { bitmap = value; }
+            }
+            #endregion
             
             #region CardFullName
             /// <summary>
@@ -93,6 +108,23 @@ namespace DataJuggler.RandomShuffler.Objects
             }
             #endregion
             
+            #region HasBitmap
+            /// <summary>
+            /// This property returns true if this object has a 'Bitmap'.
+            /// </summary>
+            public bool HasBitmap
+            {
+                get
+                {
+                    // initial value
+                    bool hasBitmap = (Bitmap != null);
+
+                    // return value
+                    return hasBitmap;
+                }
+            }
+            #endregion
+            
             #region HasCardValues
             /// <summary>
             /// This property returns true if this object has a 'CardValues'.
@@ -107,6 +139,17 @@ namespace DataJuggler.RandomShuffler.Objects
                     // return value
                     return hasCardValues;
                 }
+            }
+            #endregion
+            
+            #region Path
+            /// <summary>
+            /// This property gets or sets the value for 'Path'.
+            /// </summary>
+            public string Path
+            {
+                get { return path; }
+                set { path = value; }
             }
             #endregion
             
