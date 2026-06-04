@@ -55,6 +55,9 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+6.4.2026: I added two new properties to the Card object, Row & Column. This is to help you deal cards
+to the right locations. 
+
 5.30.2026: I added a property called Bitmap to the Card object. This is used by DataJuggler.PlayingCards in
 a WinForms environment. 
 

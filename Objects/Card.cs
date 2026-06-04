@@ -26,6 +26,8 @@ namespace DataJuggler.RandomShuffler.Objects
         private List<int> cardValues;
         private string path;
         private Bitmap bitmap;
+        private int row;
+        private int column;        
         #endregion
 
         #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, int cardValue)
@@ -108,6 +110,17 @@ namespace DataJuggler.RandomShuffler.Objects
             }
             #endregion
             
+            #region Column
+            /// <summary>
+            /// This property gets or sets the value for 'Column'.
+            /// </summary>
+            public int Column
+            {
+                get { return column; }
+                set { column = value; }
+            }
+            #endregion
+            
             #region HasBitmap
             /// <summary>
             /// This property returns true if this object has a 'Bitmap'.
@@ -150,6 +163,17 @@ namespace DataJuggler.RandomShuffler.Objects
             {
                 get { return path; }
                 set { path = value; }
+            }
+            #endregion
+            
+            #region Row
+            /// <summary>
+            /// This property gets or sets the value for 'Row'.
+            /// </summary>
+            public int Row
+            {
+                get { return row; }
+                set { row = value; }
             }
             #endregion
             
