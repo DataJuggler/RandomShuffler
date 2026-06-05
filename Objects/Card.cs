@@ -27,21 +27,23 @@ namespace DataJuggler.RandomShuffler.Objects
         private string path;
         private Bitmap bitmap;
         private int row;
-        private int column;        
+        private int column;
+        private bool exposed;
         #endregion
 
-        #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, int cardValue)
+        #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, int cardValue, bool exposed)
         /// <summary>
         /// Create a new instance of a Card object.
         /// </summary>
         /// <param name="suit"></param>
         /// <param name="cardName"></param>
-        public Card(SuitEnum suit, CardEnum cardName, int cardValue)
+        public Card(SuitEnum suit, CardEnum cardName, int cardValue, bool exposed)
         {
             // Store the parameters
             this.Suit = suit;
             this.CardName = cardName;
             this.CardValue = cardValue;
+            this.Exposed = exposed;
         }
         #endregion
         
@@ -118,6 +120,17 @@ namespace DataJuggler.RandomShuffler.Objects
             {
                 get { return column; }
                 set { column = value; }
+            }
+            #endregion
+            
+            #region Exposed
+            /// <summary>
+            /// This property gets or sets the value for 'Exposed'.
+            /// </summary>
+            public bool Exposed
+            {
+                get { return exposed; }
+                set { exposed = value; }
             }
             #endregion
             

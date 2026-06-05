@@ -35,11 +35,8 @@ Create a random shuffler for integers
 
     // Create a RandomShuffler
     RandomShuffler shuffler = new RandomShuffler(MinControl.IntValue, MaxControl.IntValue, setsToInitialize, initialShuffles);
-    
-
-    
+        
 Create a LargeNumberShuffler to draw numbers between 1 and 1 million
-
 
     // Create a new instance of a 'LargeNumberShuffler' object.
     int digits = 7;
@@ -54,6 +51,9 @@ To pull items:
 You can also create random numbers on my site: https://datajuggler.com/Random 
 
 # News
+
+6.5.2026: I added a property Exposed to the card object, so you can toggle card back or face of a card is shown.
+I also add a new method SetExposed to RandomShuffler.
 
 6.4.2026: I added two new properties to the Card object, Row & Column. This is to help you deal cards
 to the right locations. 

@@ -286,7 +286,7 @@ namespace DataJuggler.RandomShuffler
                         cardName = GetCardName(x);
 
                         // Create a new instance of a 'Card' object.
-                        card = new Card(suit, cardName, x);
+                        card = new Card(suit, cardName, x, false);
 
                         // Add the value for x
                         this.Cards.Add(card);
@@ -457,6 +457,25 @@ namespace DataJuggler.RandomShuffler
             }
             #endregion
 
+            #region SetExposed(bool exposed)
+            /// <summary>
+            /// Set Exposed
+            /// </summary>
+            public void SetExposed(bool exposed)
+            {
+                // if the value for HasCards is true
+                if (HasCards)
+                {
+                    // Iterate the collection of Card objects
+                    foreach (Card card in Cards)
+                    {
+                        // set the value for exposed
+                        card.Exposed = exposed;
+                    }
+                }
+            }
+            #endregion
+            
             #region Shuffle(int shuffleCount)
             /// <summary>
             /// This method shuffles the 'RandomIntStorage' as many times as the shuffleCount indicates.
