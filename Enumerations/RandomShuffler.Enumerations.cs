@@ -26,7 +26,8 @@ namespace DataJuggler.RandomShuffler.Enumerations
 		Ten = 10,
 		Jack = 11,
 		Queen = 12,
-		King = 13
+		King = 13,
+        Joker = 100
 	}
     #endregion
 

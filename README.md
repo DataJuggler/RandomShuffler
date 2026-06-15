@@ -52,6 +52,9 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+6.14.2026: I added a new value to CardEnum, which is Joker. I also added an optional parameter to the constructor
+of the Cards Constructor, which is Jokers Count. You can now add x number of jokers to a deck before you shuffle. 
+
 6.5.2026: I added a property Exposed to the card object, so you can toggle card back or face of a card is shown.
 I also add a new method SetExposed to RandomShuffler.
 

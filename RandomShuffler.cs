@@ -48,6 +48,7 @@ namespace DataJuggler.RandomShuffler
         private const int CardMinValue = 1;
         private const int CardMaxValue = 52;
         private int randomStorageCount;
+        private int jokersCount;
         private const int NumberSuitsInDeck = 4;
         #endregion
 
@@ -81,13 +82,13 @@ namespace DataJuggler.RandomShuffler
             }
             #endregion
 
-            #region Cards Constructor RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount, int beforeItemIsPulledShuffles = 0, int afterItemIsPulledShuffles = 0)
+            #region Cards Constructor RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount, int jokersCount = 0)
             /// <summary>
             /// Create a new instance of a RandomShuffler object; this constructor is for initializing RandomCardStorage.
             /// </summary>
             /// <param name="numberDecks"></param>
             /// <param name="initialShuffles"></param>            
-            public RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount)
+            public RandomShuffler(int numberDecks, int initialShuffles = DefaultShuffleCount, int jokersCount = 0)
             {
                 // This is Cards Mode
                 this.RandomMode = RandomModeEnum.Cards;
@@ -96,6 +97,7 @@ namespace DataJuggler.RandomShuffler
                 this.MinValue = CardMinValue;
                 this.MaxValue = CardMaxValue;
                 this.SetsToInitialize = numberDecks;
+                this.JokersCount = jokersCount;
             
                 // Create the ShuffleOptions
                 this.ShuffleOptions = new ShuffleOptionManager(initialShuffles);
@@ -279,17 +281,31 @@ namespace DataJuggler.RandomShuffler
                     // iterate the values in between min and max (add all the card, dice, etc. possibilities)
                     for (int x = minValue; x <= maxValue; x++)
                     {
-                        // Find the Suit based upon the cardNumber (x)
-                        suit = GetSuit(x);
-
                         // Get the name of this card
                         cardName = GetCardName(x);
 
+                        // Find the Suit based upon the cardNumber (x)
+                        suit = GetSuit(x);
+
                         // Create a new instance of a 'Card' object.
-                        card = new Card(suit, cardName, x, false);
+                        card = new Card(cardName, suit, x, false);
 
                         // Add the value for x
                         this.Cards.Add(card);
+                    }
+                }
+
+                // if jokers need to be added
+                if (jokersCount > 0)
+                {
+                    // add any jokers needed
+                    for (int x = 0; x < jokersCount; x++)
+                    {
+                        // Create a joker
+                        Card joker = new Card(CardEnum.Joker, SuitEnum.Unknown, 100, false);
+
+                        // Add a joker
+                        this.Cards.Add(joker);
                     }
                 }
 
@@ -609,6 +625,17 @@ namespace DataJuggler.RandomShuffler
                     // return value
                     return hasShuffleOptions;
                 }
+            }
+            #endregion
+            
+            #region JokersCount
+            /// <summary>
+            /// This property gets or sets the value for 'JokersCount'.
+            /// </summary>
+            public int JokersCount
+            {
+                get { return jokersCount; }
+                set { jokersCount = value; }
             }
             #endregion
             

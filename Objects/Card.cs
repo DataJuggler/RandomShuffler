@@ -29,24 +29,34 @@ namespace DataJuggler.RandomShuffler.Objects
         private int row;
         private int column;
         private bool exposed;
+        private bool isJoker;
         #endregion
 
-        #region Parameterized Constructor(SuitEnum suit, CardEnum cardName, int cardValue, bool exposed)
+        #region Parameterized Constructor(CardEnum cardName, SuitEnum suit, int cardValue, bool exposed)
         /// <summary>
         /// Create a new instance of a Card object.
         /// </summary>
-        /// <param name="suit"></param>
         /// <param name="cardName"></param>
-        public Card(SuitEnum suit, CardEnum cardName, int cardValue, bool exposed)
+        /// <param name="suit"></param>
+        /// <param name="cardValue">The value 2 - Ace</param>
+        /// <param name="exposed">Is this card showing (true) or the face card (false)</param>
+        public Card(CardEnum cardName, SuitEnum suit, int cardValue, bool exposed)
         {
             // Store the parameters
             this.Suit = suit;
             this.CardName = cardName;
             this.CardValue = cardValue;
             this.Exposed = exposed;
+
+            // If a Joker
+            if (CardName == CardEnum.Joker)
+            {
+                // THIS IS A jOKER
+                IsJoker = true;
+            }
         }
         #endregion
-        
+
         #region Properties
             
             #region Bitmap
@@ -165,6 +175,17 @@ namespace DataJuggler.RandomShuffler.Objects
                     // return value
                     return hasCardValues;
                 }
+            }
+            #endregion
+            
+            #region IsJoker
+            /// <summary>
+            /// This property gets or sets the value for 'IsJoker'.
+            /// </summary>
+            public bool IsJoker
+            {
+                get { return isJoker; }
+                set { isJoker = value; }
             }
             #endregion
             
