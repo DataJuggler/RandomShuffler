@@ -252,8 +252,14 @@ namespace DataJuggler.RandomShuffler
                 // If the ShuffleOptions object exists
                 if ((this.HasShuffleOptions) && (this.ShuffleOptions.InitializationShuffles > 0))
                 {
+                    // test only
+                    int cardsCount = this.CardsCount;
+
                     // Call the override for this method that repeats itself x number of times
                     Shuffle(this.ShuffleOptions.InitializationShuffles);
+
+                    // Test after shuffling
+                    cardsCount = this.CardsCount;
 
                     // The items have been shuffled
                     this.Shuffled = true;
@@ -529,7 +535,7 @@ namespace DataJuggler.RandomShuffler
                     this.RandomIntStorage = ShuffleHelper.Shuffle<int>(this.RandomIntStorage);
                 }                
             }
-        #endregion
+            #endregion
 
         #endregion
 
@@ -537,7 +543,7 @@ namespace DataJuggler.RandomShuffler
      
             #region CardsCount
             /// <summary>
-            /// This read only property returns the value of CardsCount from the object Cards.
+            /// This read only property returns the value of Count from the object Cards.
             /// </summary>
             public int CardsCount
             {
@@ -551,7 +557,7 @@ namespace DataJuggler.RandomShuffler
                     if (Cards != null)
                     {
                         // set the return value
-                        cardsCount = Cards.Capacity;
+                        cardsCount = Cards.Count;
                     }
 
                     // return value

@@ -52,6 +52,8 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+6.16.2026: I fixed a bug where sometimes the deck would come back with less than 52 cards after a shuffle.
+
 6.14.2026: I added a new value to CardEnum, which is Joker. I also added an optional parameter to the constructor
 of the Cards Constructor, which is Jokers Count. You can now add x number of jokers to a deck before you shuffle. 
 

@@ -31,8 +31,6 @@ namespace DataJuggler.RandomShuffler
             /// <param name="list"></param>
             public static List<T> Shuffle<T>(this IList<T> list)
             {
-                
-
                 // List
                 List<T> shuffledList = new List<T>();
 
@@ -76,6 +74,11 @@ namespace DataJuggler.RandomShuffler
                                 // get a randomValue
                                 int randomValue = NumericHelper.ParseInteger(randomByte.ToString(), -1, -1);
 
+                                if (randomValue < 0)
+                                {
+                                    int noWay = 0;
+                                }
+
                                 // set the randomIndex to the modulas of the the listCount
                                 randomIndex += randomValue;
                             }
@@ -96,6 +99,14 @@ namespace DataJuggler.RandomShuffler
                                 // Remove the item from the sourceList now that we have it
                                 list.RemoveAt(randomIndex);
                             }
+                        }
+                        else if (randomIndex < 0)
+                        {
+                            // band aid
+                            x--;
+
+                            // did else happen
+                            int howDidWeGetHere = 0;
                         }
                     }
                 }
