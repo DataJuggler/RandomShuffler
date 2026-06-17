@@ -52,6 +52,8 @@ You can also create random numbers on my site: https://datajuggler.com/Random
 
 # News
 
+6.17.2026: I changed CardEnum.Unkown and SuitEnum.Unknown to NotSet. Sorry if this breaks anything
+
 6.16.2026: I fixed a bug where sometimes the deck would come back with less than 52 cards after a shuffle.
 
 6.14.2026: I added a new value to CardEnum, which is Joker. I also added an optional parameter to the constructor

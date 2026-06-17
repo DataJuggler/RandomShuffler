@@ -163,7 +163,7 @@ namespace DataJuggler.RandomShuffler
             private CardEnum GetCardName(int cardNumber)
             {
                // initial value
-                CardEnum cardName = CardEnum.Unknown;
+                CardEnum cardName = CardEnum.NotSet;
                 
                 // If the value for cardNumber is between 1 and 52
                 if ((cardNumber >=1) && (cardNumber <= 52))
@@ -191,7 +191,7 @@ namespace DataJuggler.RandomShuffler
             private SuitEnum GetSuit(int cardNumber)
             {
                 // initial value
-                SuitEnum suit = SuitEnum.Unknown;
+                SuitEnum suit = SuitEnum.NotSet;
 
                 // if the cardNumber is higher than where Spades start
                 if (cardNumber > 39)
@@ -274,8 +274,8 @@ namespace DataJuggler.RandomShuffler
             public void InitializeCards()
             {
                 // locals
-                SuitEnum suit = SuitEnum.Unknown;
-                CardEnum cardName = CardEnum.Unknown;
+                SuitEnum suit = SuitEnum.NotSet;
+                CardEnum cardName = CardEnum.NotSet;
                 Card card = null;
                 
                 // Create a new collection of Card' objects.
@@ -308,7 +308,7 @@ namespace DataJuggler.RandomShuffler
                     for (int x = 0; x < jokersCount; x++)
                     {
                         // Create a joker
-                        Card joker = new Card(CardEnum.Joker, SuitEnum.Unknown, 100, false);
+                        Card joker = new Card(CardEnum.Joker, SuitEnum.NotSet, 100, false);
 
                         // Add a joker
                         this.Cards.Add(joker);

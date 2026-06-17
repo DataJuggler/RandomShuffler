@@ -13,7 +13,7 @@ namespace DataJuggler.RandomShuffler.Enumerations
 	/// </summary>
 	public enum CardEnum : int
 	{
-        Unknown = 0,
+        NotSet = 0,
 		Ace = 1,
 		Two = 2,
 		Three = 3,
@@ -62,7 +62,7 @@ namespace DataJuggler.RandomShuffler.Enumerations
 	/// </summary>
 	public enum SuitEnum : int
     {
-        Unknown = 0,
+        NotSet = 0,
 		Clubs = 1,
 		Diamonds = 2,
 		Hearts = 3,
